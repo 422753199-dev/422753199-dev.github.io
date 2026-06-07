@@ -6,6 +6,293 @@
 </head>
 <body>
 <h1>欢迎访问我的网站</h1>
-<p>这是我发布的第一段公开文字。</p>
+<p>Pysy5-2 多项式求和
+def fsum(n):
+    s=0
+    for i in range(1,n+1):
+        s=s+i
+return s
+Pysy5-3 zust-sy9-8编写函数求i以内的所有完数
+def isPerfectNum(num):
+    if num<=1:
+        return 0
+    sum_of_factors=0
+    for i in range(1,num):
+        if num%i==0:
+            sum_of_factors+=i
+    if sum_of_factors==num:
+        return 1
+    else:
+        return 0
+Pyzy5-1 函数求整数各位数字和
+def mysum(x):
+    x=abs(x)
+    s=0
+    i=1
+    while True:
+        digit=(x//i)%10
+        s+=digit
+        i*=10
+        if x//i==0:
+            break
+    return s
+Pyzy5-4 函数求可逆素数
+def isprime(num):
+    flag=1
+    for i in range(2,num):
+        if num%i==0:
+            flag=0
+    if flag:
+        return True
+    else:
+        return False
+def rev(n):
+    temp=str(n)
+    temp=temp[::-1]
+    return eval(temp)
+pyzy6-1 python函数-组合数
+def Fun_Fact(x):
+    jc=1
+    for i in range(1,x+1):
+        jc=jc*i
+    return jc
+def Fun_Comb (m,n):
+    return Fun_Fact(n)/Fun_Fact(m)/Fun_Fact(n-m)
+pyzy 6-2 sdut-使用函数求a+aa+aaa++⋯+aa.....aaa(n个a）之和
+def fn(a,n):
+    s=0
+    t=a
+    for i in range(n):
+        s=s+t
+        t=t*10+a
+    return s
+Pysy3-1 温度转换 II
+a=input()
+b=eval(a[1:])
+if a[0]=="C":
+    r=b*1.8+32
+    print("F{:.2f}".format(r))
+else:
+    r=(b-32)/1.8
+    print("C{:.2f}".format(r))
+Pysy3-3 jmu-python-判断是否构成三角形
+a,b,c=input().split()
+a=eval(a)
+b=eval(b)
+c=eval(c)
+if a+b>c and a+c>b and b+c>a:
+    print("yes")
+else:
+    print("no")
+Pyzy3-2 百分制成绩对应的成绩等级
+a=eval(input())
+if a>=90:
+    print("{}分对应的成绩等级为A".format(a))
+elif a>=80:
+    print("{}分对应的成绩等级为B".format(a))
+elif a>=70:
+    print("{}分对应的成绩等级为C".format(a))
+elif a>=60:
+    print("{}分对应的成绩等级为D".format(a))
+elif a>=0:
+    print("{}分对应的成绩等级为E".format(a))
+Pyzy3-3 zust-sy5-2购物打折
+x=eval(input())
+if x<1000:
+    y=x
+elif 1000<=x<=2000:
+    y=0.95*x
+elif 2000<=x<=3000:
+    y=0.9*x
+else:
+    y=0.85*x
+print("{:.2f}".format(y))
+Pysy4-1 天天向上的力量 周末休息
+x=eval(input())
+for i in range(365):
+    if i%7==0 or i%7==1:
+        continue
+    else:x=1.01*x
+print("{:.6f}".format(x))
+Pysy4-2 圆周率计算（蒙特卡洛算法）
+from random import *
+seed(20)
+n=eval(input())
+count=0
+for i in range(n):
+    x=random()
+    y=random()
+    if x**2+y**2<=1:
+        count=count+1
+s=4*count/n
+print("{:.8f}".format(s))
+Pysy4-3 猜数游戏
+from random import *
+seed(1)
+x=randint(1,100)
+for i in range(8):
+    a=eval(input())
+    if a>x:
+        print("Too big")
+    elif a<x:
+        print("Too small")
+    else:
+        print("Lucky You!")
+        break
+else:
+    print("Game Over!")
+Pysy4-4 求分数序列前N项和
+N=int(input())
+s=0
+a=2
+b=1
+for i in range(N):
+    s=s+a/b
+    a,b=a+b,a
+print("{:.2f}".format(s))
+Pyzy4-2 求前n项的阶乘之和
+n=eval(input())
+s=0
+j=1
+for i in range(1,n+1):
+    j=j*i
+    s=s+j
+print(s)
+Pyzy4-3 水仙花数
+for i in range(100,999):
+    a=i//100
+    b=(i-100*a)//10
+    c=i%10
+    if a**3+b**3+c**3==i:
+        print(i)
+Pysy7-3 成绩统计
+n=int(input())
+scores=list(map(int,input().split()))
+max_score=max(scores)
+min_score=min(scores)
+avg_score=sum(scores)/n
+fail_count=sum(1 for s in scores if s<60)
+print(f"Max: {max_score}")
+print(f"Min: {min_score}")
+print(f"Ave: {avg_score:.1f}")
+print(f"Fail: {fail_count}")
+Pyzy7-1 挑选出个位数字和最高位数字相同的整数
+nums=list(map(int,input().split()))
+result=[]
+for n in nums:
+    s=str(n)
+    if s[0]==s[-1]:
+        result.append(str(n))
+if result:
+    print(' '.join(result),end=' ')
+else:
+    print()
+Pyzy7-3 统计正数和负数的个数
+nums=list(map(int,input().split(',')))
+pos=sum(1 for n in nums if n>0)
+neg=sum(1 for n in nums if n<0)
+print(f"{pos},{neg}")
+Pyzy8-1 植物与颜色
+d={'red':'Rose','orange':'Poppies','yellow':'Sunflower','green':'Grass','blue':'Bluebells','violet':'Violets'}
+n=int(input())
+for _ in range(n):
+    color=input().strip()
+    if color in d:
+        print(d[color])
+    else:
+        print(f"I don't know about the color {color}.")
+一程序写在这里。下面的空分值是3分。
+x = input("请输入3位数:")
+x = int(x)
+a = x//100
+b =(x//10)%10
+c =x%10
+print(a +b +c)
+二for i in range(3):
+    x=eval(input())
+    if x>0:
+        y=1
+    elif x==0:
+        y=0
+    else:
+        y=-1
+    print(y)
+三for x in range(2, 50):
+    for y in range(2,x):
+        if x%y==0:
+            break
+    else:
+        print(x, end=' ')
+四sum = 0  # 变量sum用于累加分数
+count = 0
+while True:
+    score = int(input())
+    if score == -1:
+        break
+    if score < 0 or score > 100:
+        print("分数不合法，丢弃：", score)
+        continue
+    sum += score
+    count += 1
+if count > 0:
+    avg = sum/count
+    print("平均分：{:.1f}".format(avg))
+else:
+    print("没有有效的输入。")
+五v=[7,11,13]
+#使用统计函数找出v中的最大元素并输出
+print(max(v))
+#使用统计函数找出v中的最小元素并输出
+print(min(v))
+#使用统计函数计算v中所有元素的和并输出
+print(sum(v))
+#使用统计函数计算v中所有元素的均值并输出
+print('{:.2f}'.format(sum(v)/len (v)))
+六def repeat(ls):
+    s=set(ls)
+    if len(s)==len(ls):
+      return False
+    else:
+      return True
+
+n=int(input())
+countT=countF=0
+for i in range(n):
+    if repeat(line):
+        countT+=1
+    else:
+        countF+=1
+print(f"True={countT}, False={countF}")
+七scores={"012":(90,94,97,86,85,89,88,85),
+        "005":(91,91,92,98,90,96,90,95),
+        "108":(96,86,97,96,87,86,86,96),
+        "037":(95,95,94,93,97,98,99,95),
+        "066":(95,87,94,94,93,99,96,97),
+        "020":(89,97,91,95,89,94,97,92)}
+average={}
+for k in scores:
+    average[k]= (sum(scores[k])-max(scores[k])-min(scores[k]))/(len(scores[k])-2)
+ls= list(average.items())
+ls.sort(key=lambda x:x[1], reverse=True)
+for x in ls:
+    print("选手{}最后得分{}".format(x[0],x[1]))
+八#courses中存放了周一到周五的课程
+courses = [['数学', '语文', '英语', '体育'], ['语文', '数学', '英语', '体育'], ['英语', '语文', '数学', '体育'], ['音乐', '语文', '英语', '体育'], ['美术', '语文', '英语', '体育']]
+#接收用户输入的查询时间和课程序号，例如：输入1 3，即查询周一第3节课
+day, lesson = map(int, input().split())#输出查询到的课程名称
+ day, lesson = map(int, input().split())
+九def add(dic):
+     for i in dic:
+          dic[i]= dic[i]+10
+     return dic
+score={"zhangsan":80,"李四":50,"wangwu":40}
+print(add(score))
+十def squ(lst):
+     for i in range(len(lst)):
+          lst[i]= lst[i]**2
+m=[1,2,3,4]
+squ(m)
+print(m)
+</p>
 </body>
 </html>
